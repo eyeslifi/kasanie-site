@@ -976,6 +976,185 @@ html{scroll-padding-top:82px}
   }
 }
 </style>
+<style id="approved-opening">
+/* V3 — restore the original artwork and remove the artificial title. */
+.intro-screen{
+  position:relative !important;
+  min-height:100vh !important;
+  min-height:100svh !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  background:#061426 !important;
+}
+.intro-screen::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    linear-gradient(to bottom, rgba(3,12,23,.28) 0%, rgba(3,12,23,.08) 22%, rgba(3,12,23,0) 48%),
+    url("assets/KASANIE_ORIGINAL_HERO.png") center center / cover no-repeat;
+  transform:scale(1.02);
+  opacity:0;
+  animation:intro-art-reveal 1.05s ease forwards;
+  will-change:transform, opacity;
+}
+.intro-screen::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:auto 0 0 0 !important;
+  height:26vh !important;
+  min-height:140px !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  background:linear-gradient(to bottom, rgba(4,17,29,0) 0%, rgba(4,17,29,.06) 30%, rgba(4,17,29,.18) 58%, rgba(4,17,29,.28) 100%) !important;
+  opacity:1 !important;
+  mix-blend-mode:normal !important;
+}
+.intro-shapes,.intro-word,.intro-click{display:none !important;}
+@keyframes intro-art-reveal{
+  0%{opacity:0;transform:scale(1.035);filter:brightness(.72) saturate(.96);}
+  100%{opacity:1;transform:scale(1);filter:brightness(1) saturate(1);}
+}
+.site-menu{
+  position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:40 !important;
+  transition:transform .55s ease,opacity .55s ease,background .38s ease,color .38s ease,backdrop-filter .38s ease,border-color .38s ease !important;
+}
+.site-menu.over-intro{
+  background:linear-gradient(to bottom, rgba(4,17,29,.34) 0%, rgba(4,17,29,.14) 54%, rgba(4,17,29,0) 100%) !important;
+  color:rgba(255,255,255,.94) !important;
+  border-bottom-color:rgba(255,255,255,.08) !important;
+  backdrop-filter:none !important;
+  box-shadow:none !important;
+}
+.site-menu.over-intro .wordmark,
+.site-menu.over-intro nav a,
+.site-menu.over-intro .mobile-cta{
+  color:rgba(255,255,255,.96) !important;
+  text-shadow:0 2px 13px rgba(0,0,0,.48);
+}
+.site-menu.over-intro .nav-cta,
+.site-menu.over-intro .mobile-cta{border-bottom-color:rgba(235,190,116,.92) !important;}
+@media(max-width:800px){
+  .site-menu.over-intro{background:linear-gradient(to bottom, rgba(4,17,29,.42), rgba(4,17,29,.08)) !important;}
+  .intro-screen::before{background-position:54% center !important;background-size:cover !important;}
+}
+@media(max-width:520px){
+  .intro-screen::before{background-position:58% center !important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .intro-screen::before{animation:none !important;opacity:1 !important;transform:none !important;filter:none !important;}
+}
+
+
+.intro-screen{z-index:1}
+/* The second section continues the same painting instead of starting a new rectangle. */
+.hero.section {
+  position:relative;
+  z-index:2;
+  overflow:visible !important;
+  margin-top:-1px;
+  padding-top:clamp(172px,13vw,218px);
+  background-color:#f4f2eb !important;
+  background-image:url("assets/e6ecfacbd0e2e77b.webp") !important;
+  background-position:center center !important;
+  background-size:100% 100% !important;
+  background-repeat:no-repeat !important;
+}
+.hero.section:before {
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  z-index:1 !important;
+  left:0 !important;
+  right:0 !important;
+  top:-220px !important;
+  bottom:auto !important;
+  width:auto !important;
+  height:440px !important;
+  opacity:1 !important;
+  transform:none !important;
+  mix-blend-mode:normal !important;
+  pointer-events:none !important;
+  background-image:url("assets/opening-transition.webp") !important;
+  background-repeat:no-repeat !important;
+  background-position:center top !important;
+  background-size:100% 100% !important;
+}
+.hero.section:after {display:none !important;}
+.hero.section > * {position:relative;z-index:2;}
+.hero-copy {
+  position:relative;
+}
+.hero-copy:before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-6vw;
+  top:-72px;
+  width:min(820px,67vw);
+  height:calc(100% + 144px);
+  border-radius:46%;
+  background:radial-gradient(ellipse at 42% 46%,rgba(250,248,241,.96) 0%,rgba(248,247,241,.86) 48%,rgba(248,247,241,.3) 71%,rgba(248,247,241,0) 100%);
+  filter:blur(4px);
+  pointer-events:none;
+}
+
+/* Keep the text side light while the blue watercolor lingers around the portrait side. */
+.hero.section {
+  background-image:
+    radial-gradient(ellipse at 18% 30%,rgba(255,255,255,.62),rgba(255,255,255,0) 42%),
+    radial-gradient(ellipse at 88% 8%,rgba(70,108,127,.12),rgba(70,108,127,0) 46%),
+    url("assets/e6ecfacbd0e2e77b.webp") !important;
+  background-size:auto,auto,100% 100% !important;
+  background-position:center,center,center !important;
+}
+
+@media(max-width:800px) {
+  .intro-screen {
+    min-height:calc(100svh - 62px);
+    background-position:center center !important;
+  }
+  
+  .hero.section {
+    padding-top:150px;
+    background-size:auto,auto,auto 100% !important;
+    background-position:center,center,56% center !important;
+  }
+  .hero.section:before {
+    top:-150px !important;
+    height:320px !important;
+    background-position:center top !important;
+    background-size:auto 100% !important;
+  }
+  .hero-copy:before {
+    left:-40px;
+    top:-56px;
+    width:calc(100% + 80px);
+    height:calc(100% + 112px);
+  }
+}
+@media(max-width:520px) {
+  
+  
+  .hero.section {
+    padding-top:132px;
+    background-position:center,center,58% center !important;
+  }
+  .hero.section:before {
+    top:-128px !important;
+    height:270px !important;
+  }
+}
+
+.site-menu{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:40 !important;transition:transform .55s ease,opacity .55s ease,background .38s ease,color .38s ease,backdrop-filter .38s ease,border-color .38s ease !important}
+.site-menu.over-intro{background:linear-gradient(to bottom,rgba(4,17,29,.38) 0%,rgba(4,17,29,.16) 58%,rgba(4,17,29,0) 100%) !important;color:rgba(255,255,255,.92) !important;border-bottom-color:rgba(255,255,255,.08) !important;backdrop-filter:none !important;box-shadow:none !important}
+.site-menu.over-intro .wordmark,.site-menu.over-intro nav a,.site-menu.over-intro .mobile-cta{color:rgba(255,255,255,.94) !important;text-shadow:0 2px 13px rgba(0,0,0,.48)}
+.site-menu.over-intro .nav-cta,.site-menu.over-intro .mobile-cta{border-bottom-color:rgba(235,190,116,.9) !important}
+.site-menu.over-intro .wordmark{font-family:"Prata","Cormorant Garamond",serif !important;font-weight:400 !important;letter-spacing:.09em}
+
+@media(max-width:800px){.site-menu.over-intro{background:linear-gradient(to bottom,rgba(4,17,29,.42),rgba(4,17,29,.08)) !important}}
+</style>
 </head>
 <body>
 <header class="topbar site-menu" aria-hidden="true" inert>
@@ -989,20 +1168,7 @@ html{scroll-padding-top:82px}
 <a class="mobile-cta" href="#join">Познакомиться</a>
 </header>
 <main id="top">
-<section class="intro-screen" id="intro" aria-labelledby="intro-title">
-<div class="intro-shapes" aria-hidden="true">
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-</div>
-<p class="intro-word" id="intro-title">КАСАНИЕ</p>
-<button class="intro-click" id="intro-click" type="button" aria-label="Перейти к описанию проекта «Касание»">клик</button>
-</section>
+<section class="intro-screen" id="intro" aria-label="Касание — вступительный экран"></section>
 <section id="information" class="hero section" aria-labelledby="hero-title">
 <div class="hero-copy">
 <p class="eyebrow">Фото-психологический опыт</p>
@@ -1346,8 +1512,9 @@ options.addEventListener('keydown',function(e){const keys=['ArrowUp','ArrowDown'
 const reveal=document.querySelector('#reveal-final-form'),finalWrap=document.querySelector('#final-form-wrap');if(reveal&&finalWrap)reveal.addEventListener('click',function(){reveal.classList.add('glow-stopped');finalWrap.hidden=false;reveal.hidden=true;reveal.setAttribute('aria-expanded','true');var note=document.querySelector('.no-obligation');if(note)note.hidden=true;track('contact_reveal');requestAnimationFrame(function(){finalWrap.scrollIntoView({behavior:prefersLessMotion()?'auto':'smooth',block:'center'});var input=finalWrap.querySelector('input');if(input)input.focus();});});
 const contactForm=document.querySelector('#contact-form');contactForm.addEventListener('submit',function(e){e.preventDefault();const status=document.querySelector('#form-status'),name=contactForm.elements.name,phone=contactForm.elements.phone,email=contactForm.elements.email,consent=contactForm.elements.consent;[name,phone,email,consent].forEach(function(f){f.removeAttribute('aria-invalid');});let invalid=null;if(!name.value.trim()){invalid=name;status.textContent='Укажите имя.';}else if(phone.value.replace(/\D/g,'').length<7){invalid=phone;status.textContent='Укажите телефон: не менее семи цифр.';}else if(email.value&&!email.validity.valid){invalid=email;status.textContent='Проверьте адрес электронной почты.';}else if(!consent.checked){invalid=consent;status.textContent='Подтвердите согласие на обработку контактных данных.';}if(invalid){invalid.setAttribute('aria-invalid','true');invalid.focus();return;}status.textContent='Данные не отправлены с сайта. Открываем Telegram, чтобы вы могли написать Алексею.';window.open('https://t.me/aleks_ya_photo','_blank','noopener');});
 const voiceStage=document.querySelector('.voices-stage');if(voiceStage&&'IntersectionObserver'in window)new IntersectionObserver(function(es,o){Array.prototype.forEach.call(es,function(e){if(e.isIntersecting){e.target.classList.add('is-visible');o.unobserve(e.target);}});},{threshold:.2}).observe(voiceStage);Array.prototype.forEach.call(document.querySelectorAll('.contact-track'),function(link){link.addEventListener('click',function(){track('contact_click',{contact:link.getAttribute('data-contact')||'unknown'});});});
-var menu=document.querySelector('.site-menu');function setMenuVisible(visible){if(!menu)return;menu.classList.toggle('is-shown',visible);menu.setAttribute('aria-hidden',String(!visible));if(visible)menu.removeAttribute('inert');else menu.setAttribute('inert','');}
-if(menu&&introButton&&'IntersectionObserver'in window){new IntersectionObserver(function(entries){setMenuVisible(!entries[0].isIntersecting);},{threshold:.82}).observe(introButton.closest('#intro'));}else if(menu){setMenuVisible(window.pageYOffset>window.innerHeight*.7);window.addEventListener('scroll',function(){setMenuVisible(window.pageYOffset>window.innerHeight*.7);});}
+var menu=document.querySelector('.site-menu'),introSection=document.querySelector('#intro'),menuDelayDone=false;function setMenuVisible(visible){if(!menu)return;menu.classList.toggle('is-shown',visible);menu.setAttribute('aria-hidden',String(!visible));if(visible)menu.removeAttribute('inert');else menu.setAttribute('inert','');}
+function syncOpeningMenu(){if(!menu)return;var onIntro=!!introSection&&introSection.getBoundingClientRect().bottom>76;menu.classList.toggle('over-intro',onIntro);setMenuVisible(menuDelayDone||!onIntro);}
+if(menu){syncOpeningMenu();window.setTimeout(function(){menuDelayDone=true;syncOpeningMenu();},2000);window.addEventListener('scroll',syncOpeningMenu,{passive:true});window.addEventListener('resize',syncOpeningMenu);}
 document.addEventListener('visibilitychange',function(){var particles=document.querySelector('.particles');if(particles)particles.classList.toggle('paused',document.hidden);});
 
 function wrapCanvasText(ctx,text,x,y,maxWidth,lineHeight,maxLines){var words=text.split(/\s+/),line='',lines=[],i,test;for(i=0;i<words.length;i++){test=line?line+' '+words[i]:words[i];if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=words[i];}else line=test;}if(line)lines.push(line);if(maxLines&&lines.length>maxLines){lines=lines.slice(0,maxLines);while(ctx.measureText(lines[lines.length-1]+'…').width>maxWidth)lines[lines.length-1]=lines[lines.length-1].slice(0,-1);lines[lines.length-1]+='…';}lines.forEach(function(value,index){ctx.fillText(value,x,y+index*lineHeight);});return y+lines.length*lineHeight;}
@@ -1481,3 +1648,4 @@ saveResultButton.addEventListener('click',async function(){
 </script>
 </body>
 </html>
+
