@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eyeslifi.github.io/kasanie-site/sitemap.xml
